@@ -2,6 +2,8 @@
 
 ### 本人初学python和前端知识，利用Bootstrap + saltsatck + paramiko + python 做了一个简单的CMDB平台。
 
+#### 此软件由本人独立完成，本人笔名：君惜(JunXi)
+
 #### 软件介绍
 > 软件在win10下开发，linux主机使用Centos 7
 >
