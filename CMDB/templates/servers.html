@@ -1,0 +1,212 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>主机详情</title>
+{% endblock %}
+
+{% block head-js %}
+    <script>
+        $(function () {
+            $('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
+
+            if (!screenfull.enabled) {
+                return false;
+            }
+
+
+            $('#toggle').click(function () {
+                screenfull.toggle($('#container')[0]);
+            });
+
+
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="content-main">
+
+            <!--banner-->
+            <div class="banner">
+                <h2>
+                    <a href="{% url 'server_list' %}">主机管理</a>
+                    <i class="fa fa-angle-right"></i>
+                    <span>{{ server_data.hostname }}</span>
+                </h2>
+            </div>
+            <!--//banner-->
+
+            <!-- tab content -->
+            <div class="validation-system">
+                <div class="validation-form">
+                    <div class="inbox-padding">
+                        <table class="table table-bordered">
+                            <tbody>
+                            <tr>
+                                <td class="table-text">
+                                    <h6>主机名</h6>
+                                </td>
+                                <td class="table-text">
+                                    {{ server_data.hostname }}
+                                </td>
+                                <td class="table-text">
+                                    <h6>IP</h6>
+                                </td>
+                                <td class="table-text">
+                                    {{ server_data.ip }}
+                                </td>
+                                <td class="table-text">
+                                    <h6>物理地址</h6>
+                                </td>
+                                <td class="table-text">
+                                    {{ server_data.mac }}
+                                </td>
+                                <td class="table-text">
+                                    <h6>CPU</h6>
+                                </td>
+                                <td class="table-text">
+                                    {{ server_data.cpu }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="table-text">
+                                    <h6>主板</h6>
+                                </td>
+                                <td class="table-text">
+                                    {{ server_data.mainboard }}
+                                </td>
+                                <td class="table-text">
+                                    <h6>内存</h6>
+                                </td>
+                                <td class="table-text">
+                                    {{ server_data.mem }}
+                                </td>
+                                <td class="table-text">
+                                    <h6>磁盘</h6>
+                                </td>
+                                <td class="table-text">
+                                    {{ server_data.disk }}
+                                </td>
+                                <td class="table-text">
+                                    <h6>系统信息</h6>
+                                </td>
+                                <td class="table-text">
+                                    {{ server_data.system }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="table-text">
+                                    <h6>部门</h6>
+                                </td>
+                                <td class="table-text">
+                                    {{ server_data.departments.name }}
+                                </td>
+                                <td class="table-text">
+                                    <h6>创建日期</h6>
+                                </td>
+                                <td class="table-text">
+                                    {{ server_data.create_date }}
+                                </td>
+                                <td class="table-text">
+                                    <h6>最后更新日期</h6>
+                                </td>
+                                <td class="table-text">
+                                    {{ server_data.update_date }}
+                                </td>
+                                <td class="table-text">
+                                    <h6>启用状态</h6>
+                                </td>
+                                <td class="table-text">
+                                    {% if server_data.is_active == 1 %}
+                                        <span class="mar">已启用</span>
+                                    {% else %}
+                                        <span class="err">未启用</span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="table-text">
+                                    <h6>连接状态</h6>
+                                </td>
+                                <td>
+                                    {% if server_data.is_connect == 1 %}
+                                        <span class="mar">已连接</span>
+                                    {% else %}
+                                        <span class="err">未连接</span>
+                                    {% endif %}
+                                </td>
+                                <td class="table-text">
+                                    <h6>功能</h6>
+                                </td>
+                                <td>
+                                  <!-- Button trigger modal --><!--重启-->
+                                            <span id="{{ server.hostname }}" class="btn btn-warning btn-sm" data-toggle="modal" data-target=".{{ server_data.hostname }}-reboot">重启</span>
+                                                <!-- Modal -->
+                                                <div class="modal fade bs-example-modal-sm {{ server_data.hostname }}-reboot" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+{#                                                <div id="myModal" class="modal fade" tabindex="-1" role="dialog">#}
+{#                                                  <div class="modal-dialog" role="document">#}
+                                                  <div class="modal-dialog modal-sm" role="document">
+                                                    <div class="modal-content">
+                                                      <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                        <h4 class="modal-title span-font-red">正在重启主机{{ server_data.hostname }}</h4>
+                                                      </div>
+{#                                                      <div class="modal-body">#}
+{#                                                        <p>模态框内容&hellip;</p>#}
+{#                                                      </div>#}
+                                                      <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                                        <button type="button" class="btn btn-primary" data-hostname="{{ server_data.hostname }}" data-action="reboot_server" onclick="saltAction(dataset.hostname, dataset.action)">确认</button>
+                                                      </div>
+                                                    </div><!-- /.modal-content -->
+                                                  </div><!-- /.modal-dialog -->
+                                                </div><!-- /.modal -->
+
+                                            <!--关机-->
+                                            <span id="{{ server.hostname }}" class="btn btn-danger btn-sm" data-toggle="modal" data-target=".{{ server_data.hostname }}-shutdown">关机</span>
+                                                <!-- Modal -->
+                                                <div class="modal fade bs-example-modal-sm {{ server_data.hostname }}-shutdown" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+{#                                                <div id="myModal" class="modal fade" tabindex="-1" role="dialog">#}
+{#                                                  <div class="modal-dialog" role="document">#}
+                                                  <div class="modal-dialog modal-sm" role="document">
+                                                    <div class="modal-content">
+                                                      <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                        <h4 class="modal-title span-font-red">正在关闭主机{{ server_data.hostname }}</h4>
+                                                      </div>
+{#                                                      <div class="modal-body">#}
+{#                                                        <p>模态框内容&hellip;</p>#}
+{#                                                      </div>#}
+                                                      <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                                        <button type="button" class="btn btn-primary"  data-hostname="{{ server_data.hostname }}" data-action="shutdown_server" onclick="saltAction(dataset.hostname, dataset.action)">确认</button>
+                                                      </div>
+                                                    </div><!-- /.modal-content -->
+                                                  </div><!-- /.modal-dialog -->
+                                                </div><!-- /.modal -->
+
+                                            <a href="{% url 'server_update' server_data.id %}">
+                                                <span class="btn btn-primary btn-sm">修改</span>  <!--修改-->
+                                            </a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <!--//grid-->
+    <!---->
+    <div class="copy">
+        <p>&copy; 2017 JunXi. All Rights Reserved</p>
+    </div>
+{% endblock %}
+
+
+
+
+

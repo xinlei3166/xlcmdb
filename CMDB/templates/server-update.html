@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>主机详情</title>
+{% endblock %}
+
+{% block head-js %}
+    <script>
+        $(function () {
+            $('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
+
+            if (!screenfull.enabled) {
+                return false;
+            }
+
+
+            $('#toggle').click(function () {
+                screenfull.toggle($('#container')[0]);
+            });
+
+
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="content-main">
+
+            <!--banner-->
+            <div class="banner">
+                <h2>
+                    <a href="{% url 'server_list' %}">主机管理</a>
+                    <i class="fa fa-angle-right"></i>
+                    <span>主机修改</span>
+                    <i class="fa fa-angle-right"></i>
+                    <span>{{ server_data.hostname }}</span>
+                </h2>
+            </div>
+            <!--//banner-->
+
+            <!-- tab content -->
+            <div class="validation-system">
+                <div class="validation-form">
+                    <div class="inbox-padding">
+                        <form action="" method="post"> {% csrf_token %}
+                            <table class="table table-bordered">
+                                <tbody>
+                                <tr>
+                                    <td class="table-text">
+                                        <label><h6>主机名</h6></label>
+                                    </td>
+                                    <td class="table-text">
+                                        <input type="text" name="hostname" class="input-remove-border" value="{{ server_data.hostname }}">
+                                    </td>
+                                    <td class="table-text">
+                                        <h6>IP</h6>
+                                    </td>
+                                    <td class="table-text">
+                                        <input type="text" name="ip" class="input-remove-border" value="{{ server_data.ip }}">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="table-text">
+                                        <h6>物理地址</h6>
+                                    </td>
+                                    <td class="table-text">
+                                        <input type="text" name="mac" class="input-remove-border" value="{{ server_data.mac }}">
+                                    </td>
+                                    <td class="table-text">
+                                        <h6>CPU</h6>
+                                    </td>
+                                    <td class="table-text">
+                                        <input type="text" name="cpu" class="input-remove-border" value="{{ server_data.cpu }}">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="table-text">
+                                        <h6>主板</h6>
+                                    </td>
+                                    <td class="table-text">
+                                        <input type="text" name="mainboard" class="input-remove-border" value="{{ server_data.mainboard }}">
+                                    </td>
+                                    <td class="table-text">
+                                        <h6>内存</h6>
+                                    </td>
+                                    <td class="table-text">
+                                        <input type="text" name="mem" class="input-remove-border" value="{{ server_data.mem }}">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="table-text">
+                                        <h6>磁盘</h6>
+                                    </td>
+                                    <td class="table-text">
+                                        <input type="text" name="disk" class="input-remove-border" value="{{ server_data.disk }}">
+                                    </td>
+                                    <td class="table-text">
+                                        <h6>系统信息</h6>
+                                    </td>
+                                    <td class="table-text">
+                                        <input type="text" name="system" class="input-remove-border" value="{{ server_data.system }}">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="table-text">
+                                        <h6>部门</h6>
+                                    </td>
+                                    <td class="table-text">
+                                        <select name="departments">
+                                        {% for department in departments %}
+                                            <option value={{ department.id }}>{{ department.name }}</option>
+                                        {% endfor %}
+                                        </select>
+                                    </td>
+                                    <td class="table-text">
+                                        <h6>启用状态</h6>
+                                    </td>
+                                    <td class="table-text">
+                                        <select name="is_active">
+                                            <option value=1>已启用</option>
+                                            <option value=0>未启用</option>
+                                        </select>
+                                    </td>
+                                 </tr>
+                                </tbody>
+                            </table>
+                            <div class="inbox-padding">
+                                <button type="submit" class="btn btn-primary navbar-right">提交修改</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <!--//grid-->
+    <!---->
+    <div class="copy">
+        <p>&copy; 2017 JunXi. All Rights Reserved</p>
+    </div>
+{% endblock %}
+
+
+
+
+
