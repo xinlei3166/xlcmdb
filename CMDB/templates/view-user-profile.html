@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>查看用户信息</title>
+{% endblock %}
+
+{% block head-js %}
+		<script>
+		$(function () {
+			$('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
+
+			if (!screenfull.enabled) {
+				return false;
+			}
+
+			
+
+			$('#toggle').click(function () {
+				screenfull.toggle($('#container')[0]);
+			});
+			
+
+			
+		});
+		</script>
+{% endblock %}
+
+{% block content %}
+     <div id="page-wrapper" class="gray-bg dashbard-1">
+       <div class="content-main">
+ 
+ 	<!--banner-->	
+		    <div class="banner">
+		    	<h2>
+                <a href="{% url 'view_user_list' %}">
+				    <span>用户管理</span>
+                </a>
+                <i class="fa fa-angle-right"></i>
+                <span>{{ user_data.nickname }}</span>
+				<i class="fa fa-angle-right"></i>
+				<span>查看信息</span>
+				</h2>
+		    </div>
+		<!--//banner-->
+ 	 <!--gallery-->
+ 	 <div class=" profile">
+		<div class="profile-bottom">
+			<h3><i class="fa fa-user"></i>个人信息</h3>
+			<div class="profile-bottom-top">
+			<div class="col-md-4 profile-bottom-img">
+				<img src="/static/{{ user_data.headimg }}" alt="" style="width: 150px; height: 150px;">
+			</div>
+			<div class="col-md-8 profile-text">
+				<h6>{{ user_data.nickname }}</h6>
+				<table>
+				<tr>
+                    <td>部门</td>
+                    <td>:</td>
+                    <td>{{ user_data.departments }}</td>
+                </tr>
+				<tr>
+				<td>邮箱</td>
+				<td>:</td>
+				<td><a href="{{ user_data.email }}">{{ user_data.email }}</a></td>
+				</tr>
+				<tr>
+				<td>电话</td>
+				<td>:</td>
+				<td>{{ user_data.phone }}</td>
+				</tr>
+				<tr>
+				<td>属组</td>
+				<td>:</td>
+				<td>{{ user_data.group }}</td>
+				</tr>
+				</table>
+			</div>
+			<div class="clearfix"></div>
+			</div>
+			<div class="profile-bottom-bottom">
+			    <div class="clearfix"></div>
+			</div>
+			<div class="profile-btn">
+                <div class="col-md-3 col-md-offset-5 profile-fo">
+                    <a href="{% url 'view_user_list' %}" class="pro1"><i class="fa fa-user"></i>返回列表</a>
+                </div>
+                <div class="col-md-3 profile-fo">
+                    <a href="{% url 'update_user_profile' user_data.id %}"><i class="fa fa-cog"></i>修改信息</a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+		</div>
+	</div>
+	<!--//gallery-->
+		<!---->
+        <div class="copy">
+            <p>&copy; 2017 JunXi. All Rights Reserved</p>
+        </div>
+		</div>
+		</div>
+
+    {% endblock %}
+     
+
+
+
+

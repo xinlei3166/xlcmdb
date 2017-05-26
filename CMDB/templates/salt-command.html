@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>salt执行命令</title>
+{% endblock %}
+
+{% block head-js %}
+    <script>
+        $(function () {
+            $('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
+
+            if (!screenfull.enabled) {
+                return false;
+            }
+
+
+            $('#toggle').click(function () {
+                screenfull.toggle($('#container')[0]);
+            });
+
+
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+        <div class="content-main">
+
+            <!--banner-->
+            <div class="banner">
+                <h2>
+                    <a href="{% url 'salt_key' %}">运维管理</a>
+                    <i class="fa fa-angle-right"></i>
+                    <a href="{% url 'salt_command' %}"><span>salt执行命令</span></a>
+                </h2>
+            </div>
+            <!--//banner-->
+
+            <!-- tab content -->
+            <div class="validation-system">
+                <span class="long-span2">SALT执行命令</span>
+                <div class="validation-form">
+                    <div class="inbox-padding">
+                        <div class="mailbox-content">
+                        <div class="alert alert-danger" role="alert"><span>请注意！执行命令前请核对命令。对主机进行批量执行命令时返回结果需要时间，请耐心等待。</span></div>
+                                <div class="row">
+                                    <div class="col-lg-5">
+{#                                    <span class="short-span"  data-toggle1='tooltip' title="刷新当前页面" data-placement="top"><i class="btn fa fa-refresh" onclick="refresh()"></i></span>#}
+                                    </div><!-- /.col-lg-6 -->
+                                    <div class="col-lg-3 col-lg-offset-2">
+                                    </div><!-- /.col-lg-6 -->
+                                    <div class="col-lg-2">
+                                    </div>
+                                </div><!-- /.row -->
+                                <br />
+                                <div class="form-inline"> {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-lg-3 col-lg-offset-2">
+                                            <div class="form-inline">
+                                                <label class="span-font-red">请选择主机</label>
+                                                <select class="form-control server-list" style="width: 150px;">
+                                                  <option value="*">全部主机</option>
+                                                {% for server in server_data %}
+                                                  <option value="{{ server.hostname }}">{{ server.hostname }}</option>
+                                                {% endfor %}
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-lg-pull-1">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control command-input" placeholder="例如：free -m" style="width: 500px">
+                                                <div class="input-group-btn">
+                                                    <button type="button" class="btn btn-primary" data-action="salt_command" onclick="commandAction(getServerName(), getCommand(), this.dataset.action)">执行</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="container">
+                                    <label class="span-font-green">运行结果：</label>
+                                    <textarea class="form-control command-result-show" rows="15" style="width: 1050px"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{#    </div>#}
+    <div class="clearfix"></div>
+
+    <!--//grid-->
+    <!---->
+    <div class="copy">
+        <p>&copy; 2017 JunXi. All Rights Reserved</p>
+    </div>
+{% endblock %}
+
+{% block bottom-js %}
+    <script>
+        function refresh() {
+            window.location.reload();
+        }
+    </script>
+    <script>
+        function getServerName() {
+            var serverlist = $('.server-list')[0];
+            var index = serverlist.selectedIndex; // 选中索引
+            var text = serverlist.options[index].text; // 选中文本
+            var value = serverlist.options[index].value; // 选中值
+            return value;
+            // console.log(value);
+        }
+    </script>
+    <script>
+    function getCommand() {
+        var command = $(".command-input")[0].value;
+        return command;
+        // console.log(command);
+    }
+    </script>
+{% endblock %}
+

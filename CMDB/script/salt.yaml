@@ -1,0 +1,6 @@
+# this is saltstack salt-api interface address
+salt-api:
+    address: https://172.16.0.1:8001/
+    # address: https://172.16.0.19:8001/
+    username: saltapi
+    password: salt2017
