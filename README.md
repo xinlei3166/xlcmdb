@@ -1,6 +1,6 @@
 # primumest-cmdb
 
-### 本人初学python和前端知识，利用Bootstrap + saltsatck + paramiko + python 做了一个简单的CMDB平台。
+### 本人初学python和前端知识，利用Bootstrap + saltstack + paramiko + python 做了一个简单的CMDB平台。
 
 #### 此软件由本人独立完成，本人笔名：君惜(JunXi)
 
