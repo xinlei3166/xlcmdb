@@ -160,6 +160,34 @@ function commandAction(hostname, command, action) {
     )
 }
 
+/*文件分发函数*/
+function sendFile(action, hostname, filelist, recvdir) {
+    $.ajax(
+        {
+            type: "post",
+            cache: false,
+            url: "http://127.0.0.1:8080/web/server/saltapi/",
+            data: {
+                csrfmiddlewaretoken: '{{ csrf_token }}',
+                "action": action,
+                "hostname": hostname,
+                "filelist": filelist,
+                "recvdir": recvdir
+            },
+            success: function (data) {
+                if (data["status"] == "success") {
+                    console.log(data["status"]);
+                    var commandResultBox = $('.command-result-show')[0];
+                    commandResultBox.innerHTML = '';
+                    commandResultBox.innerHTML = data["result"];
+                }
+            },
+            error: function (err) {
+                console.log(err);
+            }
+        }
+    )
+}
 
 
 
