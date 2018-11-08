@@ -1,4 +1,4 @@
-# primumest-cmdb
+# xlcmdb
 
 ### 本人初学python和前端知识，利用Bootstrap + saltstack + paramiko + python 做了一个简单的CMDB平台。
 
