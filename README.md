@@ -94,6 +94,3 @@
 
 ![组添加页.png](http://upload-images.jianshu.io/upload_images/4262139-bfef9abe9fceb634.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-
-#### 未完待续
-![未完待续.png](http://upload-images.jianshu.io/upload_images/4262139-b6ff1551737a40df.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
