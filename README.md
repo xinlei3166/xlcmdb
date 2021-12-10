@@ -2,7 +2,7 @@
 
 ### 本人初学python和前端知识，利用Bootstrap + saltstack + paramiko + python 做了一个简单的CMDB平台。
 
-#### 此软件由本人独立完成，本人笔名：君惜(JunXi)
+#### 此软件由本人独立完成，本人笔名：君惜(xinlei3166)
 
 #### 软件介绍
 > 软件在win10下开发，linux主机使用Centos 7
@@ -27,60 +27,60 @@
 #### 效果图展示：
 1.用户界面
 
-![注册.png](http://upload-images.jianshu.io/upload_images/4262139-7ad6fd1772adbed0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![注册.png](https://tva1.sinaimg.cn/large/008i3skNly1gx8seq9tpoj30yg0itt9f.jpg)
 
-![登录.png](http://upload-images.jianshu.io/upload_images/4262139-acf6740a9378c15e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-
-![首页.png](http://upload-images.jianshu.io/upload_images/4262139-770709fa11c915f6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![登录.png](https://tva1.sinaimg.cn/large/008i3skNly1gx8sepwhdfj30yg0imgm7.jpg)
 
 
-![个人信息页.png](http://upload-images.jianshu.io/upload_images/4262139-2bf21cf0c0785da7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![首页.png](https://tva1.sinaimg.cn/large/008i3skNly1gx8seophphj30yg0il40g.jpg)
 
 
-![个人信息页-2.png](http://upload-images.jianshu.io/upload_images/4262139-508c02b275cb9a67.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![个人信息页.png](https://tva1.sinaimg.cn/large/008i3skNly1gx8sem223qj30yg0f03z5.jpg)
+
+
+![个人信息页-2.png](https://tva1.sinaimg.cn/large/008i3skNly1gx8sekprwtj30yg0ghjrw.jpg)
 
 
 2.salt界面
 
-![salt-minion列表页.png](http://upload-images.jianshu.io/upload_images/4262139-21596ed2b511c2ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![salt-minion列表页.png](https://tva1.sinaimg.cn/large/008i3skNly1gx8seitztdj30yg0ioabq.jpg)
 
 
-![salt执行命令页.png](http://upload-images.jianshu.io/upload_images/4262139-ee2e4f861163c332.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![salt执行命令页.png](https://tva1.sinaimg.cn/large/008i3skNly1gx8sehfaasj30yg0im75i.jpg)
 
 
-![salt文件分发页.png](http://upload-images.jianshu.io/upload_images/4262139-dd453dd18f582608.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![salt文件分发页.png](https://tva1.sinaimg.cn/large/008i3skNly1gx8sefly9xj30yg0j1q4c.jpg)
 
 
-![paramiko-webssh页.png](http://upload-images.jianshu.io/upload_images/4262139-4259014351571486.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![paramiko-webssh页.png](https://tva1.sinaimg.cn/large/008i3skNly1gx8see81mrj30yg0i3402.jpg)
 
 
 
 3.主机界面
 
-![主机列表页.png](http://upload-images.jianshu.io/upload_images/4262139-75607e7c5c4fde9b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![主机列表页.png](https://tva1.sinaimg.cn/large/008i3skNly1gx8secwiesj30yg0ipdhj.jpg)
 
 
-![单台主机详情页.png](http://upload-images.jianshu.io/upload_images/4262139-b38e2fa4007de335.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![单台主机详情页.png](https://tva1.sinaimg.cn/large/008i3skNly1gx8sebfdisj30yg0c3mxt.jpg)
 
 
-![主机修改页.png](http://upload-images.jianshu.io/upload_images/4262139-fe5604c4fe942f55.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![主机修改页.png](https://tva1.sinaimg.cn/large/008i3skNly1gx8se9ztsjj30yg0c8t97.jpg)
 
 
 4.用户管理界面
 
 
-![用户列表页.png](http://upload-images.jianshu.io/upload_images/4262139-6d83bf683aed8798.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![用户列表页.png](https://tva1.sinaimg.cn/large/008i3skNly1gx8se8lna7j30yg0i3jt1.jpg)
 
 
-![用户添加页.png](http://upload-images.jianshu.io/upload_images/4262139-7961dd2511246b1c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![用户添加页.png](https://tva1.sinaimg.cn/large/008i3skNly1gx8se79282j30yg0hz750.jpg)
 
 
-![组列表页.png](http://upload-images.jianshu.io/upload_images/4262139-c3ac443c22b08f3c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![组列表页.png](https://tva1.sinaimg.cn/large/008i3skNly1gx8se5ct5ij30yg0iiq3x.jpg)
 
 
-![修改权限页.png](http://upload-images.jianshu.io/upload_images/4262139-c57d396549ce61d3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![修改权限页.png](https://tva1.sinaimg.cn/large/008i3skNly1gx8se23s9bj30yg0h5gmf.jpg)
 
 
-![组添加页.png](http://upload-images.jianshu.io/upload_images/4262139-bfef9abe9fceb634.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![组添加页.png](https://tva1.sinaimg.cn/large/008i3skNly1gx8sdy1zb9j30yg0gnq3k.jpg)
 
